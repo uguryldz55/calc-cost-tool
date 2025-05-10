@@ -1,38 +1,236 @@
+body, .App {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: #fafbfc;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
-  text-align: center;
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 0 64px 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 28px;
+  letter-spacing: -1px;
+  color: #222;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input[type="file"] {
+  margin-bottom: 18px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App table {
+  margin: 32px 0 0 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: none;
+  border: 1px solid #ececec;
+  overflow: hidden;
+}
+.App th, .App td {
+  border-bottom: 1px solid #f3f3f3;
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 0.98rem;
+  font-weight: 400;
+  background: none;
+}
+.App th {
+  background: #fafbfc;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  border-bottom: 1.5px solid #ececec;
+}
+.App tr:last-child td {
+  border-bottom: none;
+}
+
+.App button {
+  margin: 0 4px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 5px;
+  background: #f3f3f3;
+  color: #222;
+  cursor: pointer;
+  font-size: 0.98rem;
+  font-weight: 400;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+}
+.App button:hover {
+  background: #e0e0e0;
+  color: #111;
+}
+
+/* Remove background for delete icon buttons */
+.App th button, .App td button {
+  background: transparent !important;
+  color: #d32f2f;
+  padding: 0 4px;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.1em;
+  cursor: pointer;
+  box-shadow: none;
+}
+.App th button:hover, .App td button:hover {
+  background: #ffeaea !important;
+}
+
+.auth-form {
+  max-width: 320px;
+  margin: 40px auto 0 auto;
+  padding: 24px 18px;
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  background: #fff;
   display: flex;
   flex-direction: column;
+  gap: 14px;
+  box-shadow: none;
+}
+.auth-form input {
+  padding: 8px;
+  font-size: 0.98rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  background: #fafbfc;
+  transition: border 0.2s;
+}
+.auth-form input:focus {
+  border: 1.5px solid #222;
+  outline: none;
+}
+.auth-form button {
+  padding: 8px;
+  background: #f3f3f3;
+  color: #222;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.98rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.auth-form button:hover {
+  background: #e0e0e0;
+}
+
+/* Formula editor */
+.App .formula-editor {
+  margin: 36px 0 0 0;
+  max-width: 600px;
+  background: #fff;
+  padding: 18px 18px 12px 18px;
+  border-radius: 8px;
+  box-shadow: none;
+  border: 1px solid #ececec;
+}
+.App .formula-editor h3 {
+  margin-top: 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #222;
+}
+.App .formula-editor label {
+  font-size: 0.98rem;
+  color: #444;
+}
+.App .formula-editor input[type="number"] {
+  width: 90px;
+  margin-left: 8px;
+}
+
+/* Role selector */
+.App .role-selector {
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 8px 0 24px 0;
+  gap: 14px;
+}
+.App .role-selector label {
+  font-size: 0.98rem;
+  color: #444;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+/* Misc */
+.App .save-msg {
+  margin-left: 12px;
+  color: #1b8a3a;
+  font-weight: 400;
+  font-size: 0.98rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.delete-x-btn {
+  background: transparent !important;
+  border: none;
+  padding: 0 4px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: none;
+  vertical-align: middle;
+  line-height: 1;
+}
+.delete-x {
+  color: #d32f2f;
+  font-size: 1em;
+  font-weight: 400;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
+.delete-x-btn:hover .delete-x {
+  background: #ffeaea;
+  border-radius: 50%;
+}
+
+.App td {
+  position: relative;
+}
+.App td .delete-x-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 0;
+}
+.App td .delete-x {
+  margin-left: 0;
+}
+
+/* Remove fixed width for table cell input fields */
+.App td input[type="text"], .App td input:not([type]), .App td input {
+  box-sizing: border-box;
+  padding: 6px 8px;
+  font-size: 0.98rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  background: #fafbfc;
+  transition: border 0.2s;
+}
+.App td input[type="text"]:focus, .App td input:not([type]):focus, .App td input:focus {
+  border: 1.5px solid #222;
+  outline: none;
+}
+
+.App th .delete-x-btn, .App td .delete-x-btn {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.App th:hover .delete-x-btn, .App td:hover .delete-x-btn {
+  opacity: 1;
+  pointer-events: auto;
 }
